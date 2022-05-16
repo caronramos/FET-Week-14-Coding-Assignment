@@ -1,0 +1,39 @@
+#App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: .2rem;
+  background-color: rgb(90, 133, 168);
+  color:rgb(3, 3, 3);
+}
+
+.welcome {
+  align-items: center;
+  border-bottom: 5px rgb(253, 253, 253) solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: .5rem;
+  padding-bottom: .5rem;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.on {
+  color: #000;
+}
+
+.off {
+  color: #ccc;
+}
+
+.tab {
+  display: inline-block;
+  margin-left: 340px;
+}
