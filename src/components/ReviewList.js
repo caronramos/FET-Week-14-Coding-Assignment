@@ -1,28 +1,17 @@
-import React from 'react'
-import ReviewForm from './ReviewForm';
+import Review from "./Review";
 
-export default class ReviewList extends React.Component {
-  constructor(props) {
-    super(props);
-      this.state = {reviews: new Array()};
-  }
-
-  onFormSubmit(formState) {
-    const reviews = this.state.reviews.slice();
-    reviews.push(formState);
-    this.setState ({
-      reviews
-    })
-  }
-
-  render() {
+const ReviewList = ({reviews}) => {
     return (
-      <div className='container'>
-        {this.state.reviews.map(function(review, index) {
-          return <div key={index}> {review.reviewInfo} </div>
-        })}
-        <ReviewForm onFormSubmit={(formState) => this.onFormSubmit(formState)} />
-      </div>
-    )
-  }
+        <div className="review-list">
+            <ul className="reviews">
+                 {
+                    reviews.map((review, index) => {
+                        return <Review key={index} review={review} />
+                    })
+                 }
+            </ul>
+        </div>
+    );
 }
+
+export default ReviewList;

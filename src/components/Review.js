@@ -1,20 +1,11 @@
-// A text review a user can leave on a movie
-import React from 'react'
-import ReviewForm from './ReviewForm';
+import Stars from "./Stars";
 
-export default class Review extends React.Component {
-  constructor(props) {
-    super(props);
-    this.text = props.text;
-    this.userReview = props.userReview;
-    this.key = props.key;
-  }
-
-  render() {
+const Review = ({review}) => {
     return (
-      <Card>
-        <Card.Body><em>{this.userReview}></em></Card.Body>
-      </Card>
-    )
-  }
+        <li>
+            <Stars stars={review.stars} />
+            <p className="review">{review.comment}</p>
+        </li>
+    );
 }
+export default Review;

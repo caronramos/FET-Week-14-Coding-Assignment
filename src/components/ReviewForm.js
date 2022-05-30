@@ -1,53 +1,22 @@
-import React from 'react';
-import {Button, Form} from 'react-bootstrap';
+import React from "react";
+import Stars from "./Stars";
 
-export default class ReviewForm extends React.Component{
-  constructor(props){
-    super(props);
-      this.state = {
-        userReview: '',
-      }
-      // this.id = props.id;
-      // this.userReview = props.userReview;
-      // this.updateReviewState = props.updateReviewState;
-      // todo: update functions to arrow functions, don't need to bind
-      this.submitReview = this.submitReview.bind(this);
-      this.handleChange = this.handleChange.bind(this);
-  }
+const useState = React.useState
 
-  resetReview() {
-    this.setState({
-      userReview: '',
-    });
-  }
-
-  submitReview() {
-    this.props.onFormSubmit(this.state);
-    this.resetReview();
-  }
-
-  handleChange(e) {
-    let target = e.target;
-    let name = target.name;
-    let value = target.value;
-    this.setState({
-      [name]: value
-    });
-  }
-
-  render() {
-    return (
-      <Form className="reviewForm">
-        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-          <Form.Label></Form.Label>
-          <Form.Control as="textarea" id="userReview" placeholder='Review' rows={3} value={this.userReview}/>
-        </Form.Group>
-        <div className="d-grid gap-2">
-          <Button variant="primary" active size="lg" onClick={this.submitReview}>Add Review</Button>
-        </div>
-        <input type='hidden' name='movieId' id='movieId' value={this.id}/>
-        <input type='hidden' id='showMovieId' placeholder={this.id}/>
-      </Form>
-    )
-  }
+const ReviewForm = ({submitHandler}) => {
+  return (
+      <div className="review-form">
+          <form onSubmit = {submitHandler}>
+              <label>Stars:</label>
+                <Stars name = "stars" stars={null} />
+                    <br></br>
+                <label>Comment:</label>
+                    <br></br>
+                <textarea rows="2" cols="25" name="comment" /> 
+                    <br></br>
+                <button type="submit">Submit</button>
+          </form>
+      </div>
+  );
 }
+export default ReviewForm;
